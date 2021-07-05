@@ -27,29 +27,23 @@
         </div>
       </div>
       <div class="row">
-        @foreach ($buku as $bukus)
-
-
+      <div class="col-lg-3 col-md-6">
         <div class="single-product">
           <div class="thumb">
             <img src="user/img/p1.png" alt="">
           </div>
           <div class="details">
-            <h4>{{ $bukus->nama_buku }}</h4>
+            <h4>The Upper Eye</h4>
             <p>
-              Pengarang {{ $bukus->pengarang }}<br/>
-              Penerbit {{ $bukus->penerbit }}
+              Who are in extremely love with eco friendly system.
             </p>
-            @if (\Auth::user())
-              <form class="" action="beli/{{$bukus->id}}" method="post">
-                  {{ csrf_field() }}
-                <button type="submit" class="btn btn-xs btn-danger" name="button">  Beli</button>
-                </form>
-            @endif
-
+            <a href="product-details.html" class="primary-btn text-uppercase">View Details</a>
           </div>
         </div>
-                @endforeach
+      </div>
+       
+
+        
       </div>
     </div>
   </section>

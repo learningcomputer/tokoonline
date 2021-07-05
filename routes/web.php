@@ -1,5 +1,7 @@
 <?php
 //tambahan sendiri
+
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,33 @@ Route::get('/', function () {
 Route::get('/list', function () {
     return view('list');
 });
+
+Route::get('/detail', function () {
+    return view('detail');
+});
+
+Route::group(['prefix'=>'user'], function () {
+    Route::get('/mybook', function () {
+        return view('user.mybook');
+    });
+});
+
+Route::group(['prefix'=>'admin'], function () {
+    //manajemen buku
+    Route::get('/buku', function () {
+        return view('admin.buku.index');
+    });
+
+    Route::get('/buku/create', function () {
+        return view('admin.buku.create');
+    });
+
+    Route::get('/buku/update', function () {
+        return view('admin.buku.update');
+    });
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
