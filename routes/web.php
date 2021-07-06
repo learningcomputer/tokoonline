@@ -44,6 +44,22 @@ Route::group(['prefix'=>'admin'], function () {
     Route::get('/buku/update', function () {
         return view('admin.buku.update');
     });
+
+    //manajemen user
+    
+    Route::get('/user', function () {
+        return view('admin.user.index');
+    });
+
+    Route::get('/user/create', function () {
+        return view('admin.user.create');
+    });
+
+    Route::get('/user/update', function () {
+        return view('admin.user.update');
+    });
+
+
 });
 
 
