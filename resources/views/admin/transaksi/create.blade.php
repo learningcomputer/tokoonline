@@ -9,31 +9,22 @@
            </div>
            <!-- /.box-header -->
            <!-- form start -->
-           <form role="form">
-
-            <div class="box-body">
-
-              <div class="form-group">
-                <label for="exampleInputEmail">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword">Password</label>
-                <input type="password" id="exampleInputPassword1" class="form-control" placeholder="Masukkan Password">
-              </div>
-              <div class="form-group">
-               <label for="exampleInputFile">File input</label>
-               <input type="file" id="exampleInputFile">
+           <form role="form" action="/admin/transaksi" method="post">
+                {{csrf_field()}}
+             <div class="box-body">
+               <div class="form-group">
+                 <label for="exampleInputEmail1">Pilih Buku</label>
+                 <select class="form-control" name="buku_id">
+                    @foreach ($buku as $bukus)
+                      <option value="{{ $bukus->id }}">{{ $bukus->nama_buku }}</option>
+                    @endforeach
+                 </select>
+               </div>
+               <div class="form-group">
+                 <label for="exampleInputPassword1">Jumlah</label>
+                 <input type="number" name="jumlah" class="form-control" id="exampleInputPassword1" placeholder="Password">
+               </div>
              </div>
-
-             <p class="help-block">Example block-level help text here.</p>
-            </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox">Check me out</label>
-              </label>
-            </div>
-            </div>
              <!-- /.box-body -->
 
              <div class="box-footer">

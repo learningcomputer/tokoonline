@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/list', function () {
-    return view('list');
-});
+Route::get('/', 'FrontController@index');
 
-Route::get('/detail', function () {
-    return view('detail');
+Route::get('/list','FrontController@list');
+
+  Route::get('logout','FrontController@logout');
+  Route::post('beli/{id}','FrontController@beli');
+
+Route::get('/detail',function(){
+  return view('detail');
 });
 
 Route::group(['prefix' => 'user'], function () {
@@ -32,45 +32,36 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 Route::group(['prefix' => 'admin'], function () {
-    //manajemen buku
-    Route::get('/buku', function () {
-        return view('admin.buku.index');
+  // manajemen buku
+
+  Route::group(['prefix'=>'buku'], function(){
+    Route::get('/','BukuController@index');
+    Route::get('create','BukuController@create');
+    Route::post('/','BukuController@store');
+    Route::get('{id}/edit','BukuController@edit');
+    Route::post('{id}/update','BukuController@update');
+    Route::delete('{id}','BukuController@destroy');
+  });
+
+    // manajemen user
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('/', 'UserController@index');
+        Route::get('create', 'UserController@create');
+        Route::post('/', 'UserController@store');
+        Route::get('{id}/edit', 'UserController@edit');
+        Route::post('{id}/update', 'UserController@update');
+        Route::delete('{id}', 'UserController@destroy');
     });
 
-    Route::get('/buku/create', function () {
-        return view('admin.buku.create');
-    });
 
-    Route::get('/buku/update', function () {
-        return view('admin.buku.update');
-    });
-
-    //manajemen user
-
-    Route::get('/user', function () {
-        return view('admin.user.index');
-    });
-
-    Route::get('/user/create', function () {
-        return view('admin.user.create');
-    });
-
-    Route::get('/user/update', function () {
-        return view('admin.user.update');
-    });
-
-    //manajemen transaksi
-    Route::get('/transaksi', function () {
-        return view('admin.transaksi.index');
-    });
-
-    Route::get('/transaksi/create', function () {
-        return view('admin.transaksi.create');
-    });
-
-    Route::get('/transaksi/update', function () {
-        return view('admin.transaksi.update');
-    });
+    Route::group(['prefix'=>'transaksi'], function(){
+        Route::get('/','TransaksiController@index');
+        Route::get('create','TransaksiController@create');
+        Route::post('/','TransaksiController@store');
+        Route::get('{id}/edit','TransaksiController@edit');
+        Route::post('{id}/update','TransaksiController@update');
+        Route::delete('{id}','TransaksiController@destroy');
+      });
 });
 
 

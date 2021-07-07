@@ -5,34 +5,25 @@
          <!-- general form elements -->
          <div class="box box-primary">
            <div class="box-header with-border">
-             <h3 class="box-title">Form Create User</h3>
+             <h3 class="box-title">Form Create Transaksi</h3>
            </div>
            <!-- /.box-header -->
            <!-- form start -->
-           <form role="form">
-
+           <form role="form" action="/admin/transaksi/{{ $transaksi->id }}/update" method="post">
+                {{csrf_field()}}
              <div class="box-body">
-
                <div class="form-group">
-                 <label for="exampleInputEmail">Email address</label>
-                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Email">
+                 <label for="exampleInputEmail1">Pilih Buku</label>
+                 <select class="form-control" name="kode_buku">
+                    @foreach ($buku as $bukus)
+                      <option value="{{ $bukus->id }}">{{ $bukus->nama_buku }}</option>
+                    @endforeach
+                 </select>
                </div>
                <div class="form-group">
-                 <label for="exampleInputPassword">Password</label>
-                 <input type="password" id="exampleInputPassword1" class="form-control" placeholder="Masukkan Password">
+                 <label for="exampleInputPassword1">Jumlah</label>
+                 <input type="jumlah" class="form-control" value ="{{ $transaksi->jumlah }}" placeholder="Password">
                </div>
-               <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
-              </div>
-
-              <p class="help-block">Example block-level help text here.</p>
-             </div>
-             <div class="checkbox">
-               <label>
-                 <input type="checkbox">Check me out</label>
-               </label>
-             </div>
              </div>
              <!-- /.box-body -->
 

@@ -19,82 +19,19 @@
           </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Trident</td>
-              <td>Internet Explorer 4.0</td>
-              <td>Win 95+</td>
-              <td> 4</td>
-              <td>X</td>
-            </tr>
-            <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-            
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-            
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-            
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-            
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-            
-              <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
-              
+            @foreach($buku as $data)
+                      <tr>
+            <td>{{ $data->id }}</td>
+            <td>{{ $data->nama_buku }}</td>
+            <td>{{ $data->pengarang }}</td>
+            <td> {{ $data->penerbit }}</td>
+            <td><a href="buku/{{ $data->id }}/edit" class="btn btn-xs btn-warning">Edit</a> <form class="" action="buku/{{$data->id}}" method="post">
+                {{ csrf_field() }}
+                 {{ method_field('DELETE') }}
+              <button type="submit" class="btn btn-xs btn-danger" name="button" onclick="confirm('Yakin ingin menghapus ?')">  Delete</button>
+              </form></td>
+                        </tr>
+          @endforeach
 
           </tbody>
           <tfoot>

@@ -9,30 +9,21 @@
            </div>
            <!-- /.box-header -->
            <!-- form start -->
-           <form role="form">
-
+           <form role="form" class="" action="/admin/user" method="post">
+                {{csrf_field()}}
              <div class="box-body">
-
                <div class="form-group">
-                 <label for="exampleInputEmail">Email address</label>
-                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Masukkan Email">
+                 <label>Name</label>
+                 <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama">
                </div>
                <div class="form-group">
-                 <label for="exampleInputPassword">Password</label>
-                 <input type="password" id="exampleInputPassword1" class="form-control" placeholder="Masukkan Password">
+                 <label>Email</label>
+                 <input type="email" name="email" class="form-control" placeholder="Masukkan Email">
                </div>
                <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile">
-              </div>
-
-              <p class="help-block">Example block-level help text here.</p>
-             </div>
-             <div class="checkbox">
-               <label>
-                 <input type="checkbox">Check me out</label>
-               </label>
-             </div>
+                 <label>Password</label>
+                 <input type="password" name="password" class="form-control" placeholder="Masukkan Password">
+               </div>
              </div>
              <!-- /.box-body -->
 

@@ -20,13 +20,16 @@
           </thead>
           <tbody>
 
-            <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td> 4</td>
-                <td>X</td>
-              </tr>
+            @foreach ($transaksi as $data)
+                        <tr>
+            <td>{{ $data->id }}</td>
+            <td>{{$data->name}}
+            </td>
+            <td>{{ $data->nama_buku }}</td>
+            <td> {{ $data->jumlah }}</td>
+            <td><a href="#" class="btn btn-xs btn-info">Detail</a> || <a href="#" class="btn btn-xs btn-warning">Edit</a> || <a href="#" class="btn btn-xs btn-danger">Delete</a></td>
+                      </tr>
+            @endforeach
 
           </tbody>
           <tfoot>

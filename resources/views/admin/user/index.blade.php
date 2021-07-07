@@ -18,13 +18,22 @@
           </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Alex</td>
-              <td>alex@gmail.com</td>
-              <td> Action</td>
-              
-            </tr>
+@foreach ($user as $data)
+  <tr>
+    <td>{{ $data->id }}</td>
+    <td>{{ $data->name }}</td>
+    <td>{{ $data->email }}</td>
+    <td><a href="{{ 'user/'.$data->id.'/edit' }}" class="btn btn-xs btn-warning">Edit</a>
+      <form class="" action="user/{{$data->id}}" method="post">
+        {{csrf_field()}}
+        {{ method_field('DELETE')}}
+        <button type="submit" class="btn btn-xs btn-danger" name="button" onclick="confirm('Yakin ingin menghapus?')">Delete</button>
+      </form>
+    </td>
+  </tr>
+
+    
+@endforeach
 
 
           </tbody>
