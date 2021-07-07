@@ -144,6 +144,7 @@
           <ul class="treeview-menu">
             <li><a href="/admin/user"><i class="fa fa-users"></i> User</a></li>
             <li><a href="/admin/buku"><i class="fa fa-file"></i> Buku</a></li>
+            <li><a href="/admin/transaksi"><i class="fa fa-file"></i> Transaksi</a></li>
           </ul>
         </li>
       </ul>

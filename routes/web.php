@@ -25,13 +25,13 @@ Route::get('/detail', function () {
     return view('detail');
 });
 
-Route::group(['prefix'=>'user'], function () {
+Route::group(['prefix' => 'user'], function () {
     Route::get('/mybook', function () {
         return view('user.mybook');
     });
 });
 
-Route::group(['prefix'=>'admin'], function () {
+Route::group(['prefix' => 'admin'], function () {
     //manajemen buku
     Route::get('/buku', function () {
         return view('admin.buku.index');
@@ -46,7 +46,7 @@ Route::group(['prefix'=>'admin'], function () {
     });
 
     //manajemen user
-    
+
     Route::get('/user', function () {
         return view('admin.user.index');
     });
@@ -59,7 +59,18 @@ Route::group(['prefix'=>'admin'], function () {
         return view('admin.user.update');
     });
 
+    //manajemen transaksi
+    Route::get('/transaksi', function () {
+        return view('admin.transaksi.index');
+    });
 
+    Route::get('/transaksi/create', function () {
+        return view('admin.transaksi.create');
+    });
+
+    Route::get('/transaksi/update', function () {
+        return view('admin.transaksi.update');
+    });
 });
 
 
